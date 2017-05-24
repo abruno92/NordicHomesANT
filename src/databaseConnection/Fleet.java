@@ -17,35 +17,52 @@ public class Fleet {
 
     //this is the field that holds the UNIQUE instance of the Fleet.
     private static Fleet ourInstance = new Fleet();
-    //this field is the observable list where all the motorhomes are stored and accessed
+    /* this field is the observable list where all the motorhomes are stored and accessed */
     ObservableList<Motorhome> theFleetList = FXCollections.observableArrayList();
 
     //this is the method to call whenever you want to get access to the Fleet
+
+    public ObservableList<Motorhome> getTheFleetList() {
+        return theFleetList;
+    }
+
     public static Fleet getInstance() {
         return ourInstance;
     }
 
     /**
-    *this is a private constructor, the whole idea of the singleton is based on this private constructor:
-    *the constructor can be called only be the ourInstance field, and its called only once per runtime.
-    * This constructor loads all the motorhomes from the database to the Observable list TheFleet.
+     *this is a private constructor, the whole idea of the singleton is based on this private constructor:
+     *the constructor can be called only be the ourInstance field, and its called only once per runtime.
+     * This constructor loads all the motorhomes from the database to the Observable list TheFleet.
      * in case you are still in doubt call 0045 71587288
-    */
+     */
     private Fleet(){
-        //make a DBConnector instance
         DBConnector db = new DBConnector();
+        /*theFleetList = FXCollections.observableArrayList();*/
         try {
-            //we make a query as we want to get data from the database
-            //the answer from the database comes in the form of a ResultSet object.
-            ResultSet result = db.makeQuery("SELECT * FROM motorhome");
+            ResultSet result = db.makeQuery("select * from motorhome");
             while(result.next()){
                 Motorhome toAdd= new Motorhome(result.getString("brand"),result.getDouble("price"),
                         result.getInt("capacity"),result.getInt("id"));
-                theFleetList.add(toAdd);
+                final boolean add = theFleetList.add(toAdd);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         db.closeConnection();
+        //TODO remove, this is just for debugging
+        for(Motorhome m: theFleetList){
+            System.out.println(m);
+        }}
+
+    public void updateMotorhome(Motorhome toUpdate, String column, String newValue){
+        DBConnector db = new DBConnector();
+        try {
+            db.makeUpdate("UPDATE motorhome SET "+column+"='"+newValue+"' WHERE id="+toUpdate.getId());
+        } catch (SQLException e) {
+            e.printStackTrace();
+            //TODO handle it properly
+        }
     }
+
 }

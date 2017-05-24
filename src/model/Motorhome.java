@@ -1,7 +1,6 @@
 package model;
 
-
-
+import databaseConnection.Fleet;
 import javafx.beans.property.*;
 
 /**
@@ -18,6 +17,8 @@ public class Motorhome {
         this.brand.setValue(brand);
         this.price.setValue(price);
         this.nbrPersons.setValue(nbrPersons);
+        setListeners();
+        this.id = 0;
     }
 
     public Motorhome(String brand, double price, int nbrPersons, int id) {
@@ -25,6 +26,10 @@ public class Motorhome {
         this.price.setValue(price);
         this.nbrPersons.setValue(nbrPersons);
         this.id = id;
+        setListeners();
+    }
+    public Motorhome() {
+        setListeners();
     }
 
     public String getBrand() {
@@ -54,4 +59,42 @@ public class Motorhome {
     public int getId() {
         return id;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Motorhome{" +
+                "brand=" + brand.getValue() +
+                ", price=" + price.getValue() +
+                ", nbrPersons=" + nbrPersons.getValue() +
+                '}';
+    }
+
+    private void setListeners(){
+        //first we take the property object that wraps the brand.
+        //properties are objects that you can add listeners to.
+        //check this page:
+        brand.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    Fleet.getInstance().updateMotorhome(this, "brand", newValue);
+                });
+        price.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    String price = Double.toString(newValue.doubleValue());
+                    Fleet.getInstance().updateMotorhome(this, "price", price);
+                });
+        nbrPersons.addListener(
+                //this is a lambda expression,
+                (v, oldValue, newValue)->{
+                    String capacity = Integer.toString(newValue.intValue());
+                    Fleet.getInstance().updateMotorhome(this, "capacity", capacity);
+                });
+
+    }
+
 }
