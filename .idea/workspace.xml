@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/databaseConnection/CustomerList.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/model/Customers.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/JavaFxApplication.iml" afterPath="$PROJECT_DIR$/JavaFxApplication.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" afterPath="$PROJECT_DIR$/src/databaseConnection/DBConnector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" afterPath="$PROJECT_DIR$/src/databaseConnection/Fleet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/Motorhome.java" afterPath="$PROJECT_DIR$/src/model/Motorhome.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -210,7 +203,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="26" />
+    <option name="x" value="27" />
     <option name="y" value="23" />
     <option name="width" value="1254" />
     <option name="height" value="777" />
@@ -775,7 +768,7 @@
       <workItem from="1495145971476" duration="7661000" />
       <workItem from="1495286423123" duration="1743000" />
       <workItem from="1495406567246" duration="75000" />
-      <workItem from="1495541398327" duration="791000" />
+      <workItem from="1495541398327" duration="1284000" />
     </task>
     <task id="LOCAL-00001" summary="just a testing commit">
       <created>1495146077844</created>
@@ -798,14 +791,21 @@
       <option name="project" value="LOCAL" />
       <updated>1495291046422</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add customer and customerList classes">
+      <created>1495605009666</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495605009666</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24605000" />
+    <option name="totallyTimeSpent" value="25098000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="23" width="1254" height="777" extended-state="6" />
+    <frame x="27" y="23" width="1254" height="777" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -854,7 +854,8 @@
     <MESSAGE value="just a testing commit" />
     <MESSAGE value="connected fleet to the database" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="Add customer and customerList classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add customer and customerList classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
